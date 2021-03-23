@@ -1,4 +1,4 @@
-package test;
+package test.oop;
 
 import junit.framework.TestCase;
 import ru.job4j.oop.Triangle;
