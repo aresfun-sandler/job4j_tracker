@@ -12,14 +12,14 @@ public class Builder extends Engineer {
     }
 
     public int getHouses() {
-
+        return getHouses();
     }
 
     public int getProjects() {
-
+        return getProjects();
     }
 
     public int getConstruction() {
-
+        return getConstruction();
     }
 }

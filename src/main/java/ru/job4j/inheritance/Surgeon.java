@@ -12,14 +12,14 @@ public class Surgeon extends Doctor {
     }
 
     private boolean isExamination() {
-
+    return isExamination();
     }
 
     private boolean isAnesthetize() {
-
+    return  isAnesthetize();
     }
 
     private int getOperate() {
-
+    return getOperate();
     }
 }

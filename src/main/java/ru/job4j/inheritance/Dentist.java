@@ -12,14 +12,14 @@ public class Dentist extends Doctor {
     }
 
     private boolean isExamination() {
-
+        return isExamination();
     }
 
     private int getTeeth() {
-
+        return getTeeth();
     }
 
     private int getFilling() {
-
+        return getFilling();
     }
 }

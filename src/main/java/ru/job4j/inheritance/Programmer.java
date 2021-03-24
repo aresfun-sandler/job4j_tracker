@@ -12,14 +12,14 @@ public class Programmer extends Engineer {
     }
 
     public boolean isOffer() {
-
+        return isOffer();
     }
 
     public int getPrograms() {
-
+        return getPrograms();
     }
 
     public int getExperience() {
-
+        return getExperience();
     }
 }

@@ -14,14 +14,14 @@ public class Doctor extends Profession {
     }
 
     public String getDiagnosis() {
-
+        return getDiagnosis();
     }
 
     public String getTreatment() {
-
+        return getTreatment();
     }
 
     public boolean isHospitalize() {
-
+        return isHospitalize();
     }
 }

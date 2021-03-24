@@ -14,14 +14,14 @@ public class Engineer extends Profession {
     }
 
     public int getBlueprints() {
-
+        return getBlueprints();
     }
 
     public boolean isRepairs() {
-
+        return isRepairs();
     }
 
     public int getInspection() {
-
+        return getInspection();
     }
 }
