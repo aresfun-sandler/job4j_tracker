@@ -10,21 +10,21 @@ public class MaxTest extends TestCase {
 
     @Test
     public void testMaxTwo() {
-        Max one = new Max(1, 2, 3, 4);
+        Max one = new Max();
         int rsl = one.max(1, 2);
         assertThat(rsl, is(2));
     }
 
     @Test
     public void testMaxThree() {
-        Max one = new Max(1, 2, 3, 4);
+        Max one = new Max();
         int rsl = one.max(8, 2, 1);
         assertThat(rsl, is(8));
     }
 
     @Test
     public void testMaxFour() {
-        Max one = new Max(1, 2, 3, 4);
+        Max one = new Max();
         int rsl = one.max(1, 2, 8, -10);
         assertThat(rsl, is(8));
     }
