@@ -6,8 +6,9 @@ public class StartUI {
         Item nowDateTime = new Item();
 //        String dateTime = nowDateTime.getCreated();
 //        System.out.println(dateTime);
-        Tracker tracker = new Tracker();
-        tracker.add(nowDateTime);
-        System.out.println(tracker.findById(1));
+//        Tracker tracker = new Tracker();
+//        tracker.add(nowDateTime);
+//        System.out.println(tracker.findById(1));
+        System.out.println(nowDateTime);
     }
 }
