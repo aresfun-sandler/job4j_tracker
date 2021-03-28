@@ -20,8 +20,8 @@ public class StartUI {
                     System.out.println("All Items are loaded");
                     System.out.println("All Items:");
                     Item[] array = tracker.findAll();
-                    for (int i = 0; i < array.length; i++) {
-                        System.out.println(array[i]);
+                    for (Item i : array) {
+                        System.out.println(i);
                     }
                 } else if (select == 2) {
                         int id = input.askInt("Enter the Item "
@@ -57,8 +57,8 @@ public class StartUI {
                             + " want to search");
                     Item[] item = tracker.findByName(name);
                     if (item.length > 0) {
-                        for (int i = 0; i < item.length; i++) {
-                            System.out.println(item[i]);
+                        for (Item i : item) {
+                            System.out.println(i);
                         }
                     } else {
                         System.out.println("Item with this name were not found.");
