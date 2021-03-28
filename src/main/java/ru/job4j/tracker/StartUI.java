@@ -28,6 +28,8 @@ public class StartUI {
         boolean success = tracker.replace(id, item);
         if (success) {
             System.out.println("Replacement was successful");
+        } else {
+            System.out.println("An error has occurred");
         }
     }
 
