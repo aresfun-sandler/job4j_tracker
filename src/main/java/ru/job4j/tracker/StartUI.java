@@ -100,7 +100,9 @@ public class StartUI {
         Tracker tracker = new Tracker();
 //        new StartUI().init(input, tracker);
         UserAction[] actions = {
-                new CreateAction()
+                new CreateAction(), new ShowAllAction(), new ReplaceAction(),
+                 new DeleteAction(), new DeleteAction(), new FindIdAction(),
+                new FindNameAction(), new ExitAction()
         };
         new StartUI().init(input, tracker, actions);
     }
