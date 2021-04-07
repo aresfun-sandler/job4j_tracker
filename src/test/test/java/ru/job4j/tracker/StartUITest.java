@@ -68,7 +68,7 @@ public class StartUITest {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item1 = tracker.add(new Item("Show all Items"));
+        Item item = tracker.add(new Item("Show all Items"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[] {"0", "1"}
@@ -78,7 +78,7 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll(), is(item1));
+        assertThat(tracker.findAll()[0], is(item));
     }
 
     @Test
