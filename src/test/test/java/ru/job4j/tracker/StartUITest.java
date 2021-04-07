@@ -13,53 +13,129 @@ public class StartUITest {
 
     @Test
     public void whenCreateItem() {
+        Output output = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "Item name", "6"}
+                new String[] {"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
+                new CreateAction(output),
                 new ExitAction()
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
     }
 
     @Test
     public void whenReplaceItem() {
-        Input in = new StubInput(
-                new String[] {"2", "Item name", "1"}
-        );
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Replaced item"));
+        Item item = tracker.add(new Item("Replace Item"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New item name";
-        Input in = new StubInput(
-                new String[] {"2", "Id Item", "6"}
+         Input in = new StubInput(
+                new String[] {"0", "New item name", "1"}
         );
         UserAction[] actions = {
                 new ReplaceAction(),
                 new ExitAction()
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
 
     @Test
     public void whenDeleteItem() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Deleted item"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
-                new String[] {"4", "Id Item", "6"}
+                new String[] {"0", null, "1"}
         );
         UserAction[] actions = {
                 new DeleteAction(),
                 new ExitAction()
         };
-        new StartUI().init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
+
+//    @Test
+//    public void whenAllAction() {
+//        Output output = new StubOutput();
+//        Tracker tracker = new Tracker();
+//        /* Добавим в tracker новую заявку */
+//        Item item = tracker.add(new Item("Show all Items"));
+//        /* Входные данные должны содержать ID добавленной заявки item.getId() */
+//        Input in = new StubInput(
+//                new String[] {"1", null, "0"}
+//        );
+//        UserAction[] actions = {
+//                new ShowAllAction(),
+//                new ExitAction()
+//        };
+//        new StartUI(output).init(in, tracker, actions);
+//        assertThat(tracker.findById(item.getId()), is(nullValue()));
+//    }
+//
+//    @Test
+//    public void whenByNameAction() {
+//        Output output = new StubOutput();
+//        Tracker tracker = new Tracker();
+//        /* Добавим в tracker новую заявку */
+//        Item item = tracker.add(new Item("Find Item by name"));
+//        /* Входные данные должны содержать ID добавленной заявки item.getId() */
+//        Input in = new StubInput(
+//                new String[] {"4", "Id Item", "6"}
+//        );
+//        UserAction[] actions = {
+//                new FindNameAction(),
+//                new ExitAction()
+//        };
+//        new StartUI(output).init(in, tracker, actions);
+//        assertThat(tracker.findById(item.getId()), is(nullValue()));
+//    }
+//
+//    @Test
+//    public void whenByIdAction() {
+//        Output output = new StubOutput();
+//        Tracker tracker = new Tracker();
+//        /* Добавим в tracker новую заявку */
+//        Item item = tracker.add(new Item("Find Item by id"));
+//        /* Входные данные должны содержать ID добавленной заявки item.getId() */
+//        Input in = new StubInput(
+//                new String[] {"0", null, "1"}
+//        );
+//        UserAction[] actions = {
+//                new FindIdAction(),
+//                new ExitAction()
+//        };
+//        new StartUI(output).init(in, tracker, actions);
+//        assertThat(tracker.findById(item.getId()), is(nullValue()));
+//    }
+
+//    @Test
+//    public void whenInvalidExit() {
+//        Output out = new StubOutput();
+//        Input in = new StubInput(
+//                new String[] {"0. Exit", "0"}
+//        );
+//        Tracker tracker = new Tracker();
+//        UserAction[] actions = new UserAction[]{
+//                new ExitAction(out)
+//        };
+//        new StartUI(out).init(in, tracker, actions);
+//        String ln = System.lineSeparator();
+//        assertThat(out.toString(), is(
+//                "Menu." + ln
+//                        + "0. Exit" + ln
+//                        + "Wrong input, you can select: 0 .. 0" + ln
+//                        + "Menu." + ln
+//                        + "0. Exit" + ln
+//                )
+//        );
+//    }
 }
