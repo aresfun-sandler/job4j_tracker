@@ -95,8 +95,9 @@ public class StartUITest {
                 new FindNameAction(output),
                 new ExitAction(output)
         };
+        String ln = System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findByName(item.getName()), is(item));
+        assertThat(output.toString(), is(item));
     }
 
     @Test
@@ -121,7 +122,7 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "7", "0", "1"}
+                new String[] {"7", "0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
@@ -131,10 +132,10 @@ public class StartUITest {
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu." + ln
-                        + "0. Exit" + ln
+                        + "0. Exit the program" + ln
                         + "Wrong input, you can select: 0 .. 0" + ln
                         + "Menu." + ln
-                        + "0. Exit" + ln
+                        + "0. Exit the program" + ln
                 )
         );
     }
