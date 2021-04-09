@@ -91,9 +91,17 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        Item[] founded = tracker.findByName("Find Item by name");
-        assertThat(founded.length, Is.is(1));
-        assertThat(founded[0], Is.is(item));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), Is.is(
+                "Menu." + ln
+                        + "0. Find Item by name" + ln
+                        + "1. Exit the program" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. Find Item by name" + ln
+                        + "1. Exit the program" + ln
+                )
+        );
     }
 
     @Test
