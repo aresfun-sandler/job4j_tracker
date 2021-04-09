@@ -82,9 +82,7 @@ public class StartUITest {
     public void whenByNameAction() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Find Item by name"));
-        /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[] {"0", "Find Item by name", "1"}
         );
