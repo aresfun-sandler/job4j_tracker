@@ -18,14 +18,15 @@ public class Item {
         return currentDateTimeFormat;
     }
 
-    public Item(int number) {
-        this.id = number;
+    public Item(String name) {
+        this.name = name;
     }
 
     public Item(int number, String title) {
         this.id = number;
         this.name = title;
     }
+
 
     public int getId() {
         return id;
