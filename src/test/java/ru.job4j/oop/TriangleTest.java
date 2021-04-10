@@ -1,12 +1,11 @@
-package test.oop;
+package ru.job4j.oop;
 
-import junit.framework.TestCase;
-import ru.job4j.oop.Triangle;
-import ru.job4j.oop.Point;
 import static org.hamcrest.Matchers.closeTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import ru.job4j.oop.Point;
+import ru.job4j.oop.Triangle;
 
 public class TriangleTest {
 

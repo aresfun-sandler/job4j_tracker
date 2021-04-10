@@ -1,4 +1,4 @@
-package test.java.ru.job4j.ex;
+package ru.job4j.ex;
 
 import org.junit.Test;
 import ru.job4j.ex.Fact;

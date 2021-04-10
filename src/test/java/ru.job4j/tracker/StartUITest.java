@@ -1,4 +1,4 @@
-package test.java.ru.job4j.tracker;
+package ru.job4j.tracker;
 
 import org.hamcrest.core.Is;
 import org.junit.Test;

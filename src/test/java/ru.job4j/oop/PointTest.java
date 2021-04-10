@@ -1,11 +1,11 @@
-package test.oop;
+package ru.job4j.oop;
 
 import junit.framework.TestCase;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
-import ru.job4j.oop.Point;
 
 import org.junit.Test;
+import ru.job4j.oop.Point;
 
 public class PointTest extends TestCase {
 

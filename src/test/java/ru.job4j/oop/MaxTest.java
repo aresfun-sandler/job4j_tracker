@@ -1,8 +1,9 @@
-package test.oop;
+package ru.job4j.oop;
 
-import ru.job4j.oop.Max;
 import junit.framework.TestCase;
 import org.junit.Test;
+import ru.job4j.oop.Max;
+
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 

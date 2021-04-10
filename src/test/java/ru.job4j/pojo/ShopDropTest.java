@@ -1,4 +1,4 @@
-package pojo;
+package ru.job4j.pojo;
 
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
