@@ -75,7 +75,19 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0], Is.is(item));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), Is.is(
+                "Menu." + ln
+                        + "0. Show all Items" + ln
+                        + "1. Exit the program" + ln
+                        + "All Items are loaded" + ln
+                        + "All Items:" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. Show all Items" + ln
+                        + "1. Exit the program" + ln
+                )
+        );
     }
 
     @Test
@@ -119,7 +131,18 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), Is.is(item));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), Is.is(
+                "Menu." + ln
+                        + "0. Find Item by id" + ln
+                        + "1. Exit the program" + ln
+                        + "Name Item: Find Item by id" + ln
+                        + "Id Item: 1" + ln
+                        + "Menu." + ln
+                        + "0. Find Item by id" + ln
+                        + "1. Exit the program" + ln
+                )
+        );
     }
 
     @Test
