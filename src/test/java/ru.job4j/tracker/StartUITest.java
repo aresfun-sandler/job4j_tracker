@@ -96,7 +96,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Find Item by name"));
         Input in = new StubInput(
-                new String[] {"0", "Find Item by name", "1"}
+                new String[] {"0", item.getName(), "1"}
         );
         UserAction[] actions = {
                 new FindNameAction(output),
@@ -124,7 +124,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Find Item by id"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
-                new String[] {"0", "1", "1"}
+                new String[] {"0", Integer.toString(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new FindIdAction(output),
