@@ -136,8 +136,7 @@ public class StartUITest {
                 "Menu." + ln
                         + "0. Find Item by id" + ln
                         + "1. Exit the program" + ln
-                        + "Name Item: Find Item by id" + ln
-                        + "Id Item: 1" + ln
+                        + item + ln
                         + "Menu." + ln
                         + "0. Find Item by id" + ln
                         + "1. Exit the program" + ln
