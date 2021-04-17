@@ -4,6 +4,8 @@ import org.hamcrest.core.Is;
 import org.junit.Test;
 import ru.job4j.tracker.*;
 
+import java.util.List;
+
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 
@@ -15,10 +17,10 @@ public class StartUITest {
                 new String[] {"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new CreateAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), Is.is("Item name"));
     }
@@ -28,16 +30,16 @@ public class StartUITest {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Replace Item"));
+        List<Item> item = tracker.add(new Item("Replace Item"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[] {"0", "1", replacedName, "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new ReplaceAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), Is.is(replacedName));
     }
@@ -47,15 +49,15 @@ public class StartUITest {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Deleted item"));
+        List<Item> item = tracker.add(new Item("Deleted item"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[] {"0", "1", "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new DeleteAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), Is.is(nullValue()));
     }
@@ -65,15 +67,15 @@ public class StartUITest {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Show all Items"));
+        List<Item> item = tracker.add(new Item("Show all Items"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new ShowAllAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString(), Is.is(
@@ -94,14 +96,14 @@ public class StartUITest {
     public void whenByNameAction() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Find Item by name"));
+        List<Item> item = tracker.add(new Item("Find Item by name"));
         Input in = new StubInput(
                 new String[] {"0", item.getName(), "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new FindNameAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString(), Is.is(
@@ -121,15 +123,15 @@ public class StartUITest {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Find Item by id"));
+        List<Item> item = tracker.add(new Item("Find Item by id"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         Input in = new StubInput(
                 new String[] {"0", Integer.toString(item.getId()), "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = List.of(
                 new FindIdAction(output),
                 new ExitAction(output)
-        };
+        );
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString(), Is.is(
@@ -151,9 +153,9 @@ public class StartUITest {
                 new String[] {"7", "0"}
         );
         Tracker tracker = new Tracker();
-        UserAction[] actions = new UserAction[]{
+        List<UserAction> actions = List.of(
                 new ExitAction(out)
-        };
+        );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), Is.is(

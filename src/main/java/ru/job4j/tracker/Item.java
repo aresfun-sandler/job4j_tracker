@@ -27,7 +27,6 @@ public class Item {
         this.name = title;
     }
 
-
     public int getId() {
         return id;
     }

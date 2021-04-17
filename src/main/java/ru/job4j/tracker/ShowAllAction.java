@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 public class ShowAllAction implements UserAction {
     private final Output out;
 
@@ -16,7 +18,7 @@ public class ShowAllAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("All Items are loaded");
         out.println("All Items:");
-        Item[] array = tracker.findAll();
+        List<Item> array = tracker.findAll();
         for (Item i : array) {
             out.println(i);
         }
