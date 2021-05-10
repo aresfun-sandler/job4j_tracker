@@ -14,7 +14,9 @@ public class UniqueText {
             check.add(org);
         }
         for (String txt : text) {
-           rsl = check.contains(txt);
+           if (!check.contains(txt)) {
+               rsl = false;
+           }
         }
         return rsl;
     }
