@@ -20,7 +20,7 @@ public class PassportOffice {
         return citizens.get(passport);
     }
 
-    public Object size() {
+    public int size() {
         return citizens.size();
     }
 }
