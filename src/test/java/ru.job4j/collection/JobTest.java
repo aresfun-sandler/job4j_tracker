@@ -13,19 +13,19 @@ public class JobTest {
     public void maxComparatorByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new MaxNameComparator().thenComparing(new MaxPriorComparator());
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Fix bug", 1),
+                new Job("Fix bug", 0)
         );
-        assertThat(rsl, greaterThan(1));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
     public void minComparatorNameOrPriority() {
         Comparator<Job> cmpNamePriority = new MinNameComparator().thenComparing(new MinPriorComparator());
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Fix bug", 1),
+                new Job("Fix bug", 0)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, lessThan(1));
     }
 }
