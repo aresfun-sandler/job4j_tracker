@@ -1,6 +1,5 @@
 package ru.job4j.collection;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import java.util.Iterator;
 import java.util.Set;

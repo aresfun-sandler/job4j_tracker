@@ -2,5 +2,8 @@ package ru.job4j.oop;
 
 public interface Vehicle {
     void move();
-    void riskOfAccident();
+
+    default void riskOfAccident() {
+
+    }
 }

@@ -2,11 +2,21 @@ package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Item {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(int number, String title) {
+        this.id = number;
+        this.name = title;
+    }
 
     public Item() {
 
@@ -16,15 +26,6 @@ public class Item {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String currentDateTimeFormat = this.created.format(formatter);
         return currentDateTimeFormat;
-    }
-
-    public Item(String name) {
-        this.name = name;
-    }
-
-    public Item(int number, String title) {
-        this.id = number;
-        this.name = title;
     }
 
     public int getId() {
@@ -45,10 +46,28 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created +
-                '}';
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", created=" + created
+                + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Item item = (Item) o;
+        return id == item.id && Objects.equals(name, item.name)
+                && Objects.equals(created, item.created);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, created);
     }
 }

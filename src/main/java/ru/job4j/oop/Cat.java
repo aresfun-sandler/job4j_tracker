@@ -29,5 +29,6 @@ public class Cat {
         black.giveNick("Кот");
         black.eat("fish");
         black.show();
+        
     }
 }
