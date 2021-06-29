@@ -28,8 +28,7 @@ public class FunctionalInterfaces {
         Function<String, String> func = s -> s.toUpperCase();
         Consumer<String> con = s -> System.out.println(s);
         for (String s : strings) {
-            String str = func.apply(s);
-            con.accept(str);
+            con.accept(func.apply(s));
         }
     }
 }
