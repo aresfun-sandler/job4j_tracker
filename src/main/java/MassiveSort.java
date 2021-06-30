@@ -3,12 +3,12 @@ public class MassiveSort {
         int[] rsl = new int[left.length + right.length];
         int i = 0;
         int j = 0;
-        while (i + j < rsl.length) {
-            if (j == right.length || i != left.length
-                    && left[i] < right[j]) {
-                rsl[i + j] = left[i++];
+        int z = 0;
+        while (z < rsl.length) {
+            if (i < left.length && left[i] < right[j]) {
+                rsl[z++] = left[i++];
             } else {
-                rsl[i + j] = right[j++];
+                rsl[z++] = right[j++];
             }
         }
         return rsl;
