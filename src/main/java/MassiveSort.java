@@ -5,7 +5,7 @@ public class MassiveSort {
         int j = 0;
         int z = 0;
         while (z < rsl.length) {
-            if (i < left.length && left[i] < right[j]) {
+            if (i < left.length && left[i] <= right[j]) {
                 rsl[z++] = left[i++];
             } else {
                 rsl[z++] = right[j++];
