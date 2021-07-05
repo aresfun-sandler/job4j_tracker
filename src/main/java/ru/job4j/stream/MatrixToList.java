@@ -6,10 +6,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MatrixToList {
-    public List<Integer> convert(int[][] array) {
+    public List<Integer> convert(Integer[][] array) {
         return Stream.of(array)
-                .flatMapToInt(Arrays::stream)
-                .boxed()
+                .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
     }
 }
