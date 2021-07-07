@@ -11,6 +11,14 @@ public class Card {
         this.value = value;
     }
 
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,14 +30,6 @@ public class Card {
     @Override
     public int hashCode() {
         return Objects.hash(suit, value);
-    }
-
-    public Suit getSuit() {
-        return suit;
-    }
-
-    public Value getValue() {
-        return value;
     }
 
     @Override
