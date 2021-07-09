@@ -7,12 +7,25 @@ public class Patient {
     private String diagnosis;
     private boolean hospitalization;
 
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", diagnosis='" + diagnosis + '\'' +
+                ", hospitalization=" + hospitalization +
+                '}';
+    }
+
     static class Builder {
         private String name;
         private String surname;
         private byte age;
         private String diagnosis;
         private boolean hospitalization;
+
+
 
         Builder buildName(String name) {
             this.name = name;
