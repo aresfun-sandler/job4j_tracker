@@ -13,7 +13,7 @@ public class MaxNameComparatorTest {
 
     @Test
     public void testCompare() {
-        List<Job> input = Arrays.asList(
+        List<Job> input = List.of(
                 new Job("Petr", 27),
                 new Job("Ivan", 28)
         );

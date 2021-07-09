@@ -15,7 +15,7 @@ public class MinNameComparatorTest {
 
     @Test
     public void testCompare() {
-        List<Job> input = Arrays.asList(
+        List<Job> input = List.of(
                 new Job("Petr", 28),
                 new Job("Ivan", 27)
         );
