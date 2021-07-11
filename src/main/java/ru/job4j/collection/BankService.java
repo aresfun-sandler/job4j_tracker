@@ -10,32 +10,27 @@ public class BankService {
     }
 
     public void addAccount(String passport, AccountBank accountBank) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<AccountBank> accountList = users.get(user);
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            List<AccountBank> accountList = users.get(user.get());
             if (!accountList.contains(accountBank)) {
                 accountList.add(accountBank);
             }
         }
     }
 
-    public User findByPassport(String passport) {
-        return users.keySet().stream()
-                .filter(s -> s.getPassport()
-                        .equals(passport))
-                .findFirst()
-                .orElse(null);
+    public Optional<User> findByPassport(String passport) {
+           return users.keySet().stream()
+                   .filter(s -> s.getPassport()
+                           .equals(passport))
+                   .findFirst();
     }
 
     public AccountBank findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            return users.get(user).stream()
-                    .filter(s -> s.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
-        }
-        return null;
+        Optional<User> user = findByPassport(passport);
+        return user.flatMap(value -> users.get(value).stream()
+                .filter(s -> s.getRequisite().equals(requisite))
+                .findFirst()).orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
