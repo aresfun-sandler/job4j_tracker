@@ -18,3 +18,9 @@ notifications:
       - alex-sandler@mail.ru
     on_success: never # default: change
     on_failure: always # default: always
+env:
+
+  global:
+
+    CODECOV_TOKEN = 'dd97b365-340f-4bf0-b86d-1b2582ab1b97'
+
