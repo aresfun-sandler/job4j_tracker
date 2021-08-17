@@ -18,10 +18,10 @@ public class Departments {
     }
 
     public static void sortAsc(List<String> orgs) {
-        fillGaps(orgs).sort(Comparator.naturalOrder());
+        orgs.sort(Comparator.naturalOrder());
     }
 
     public static void sortDesc(List<String> orgs) {
-        fillGaps(orgs).sort(new DepDescComp());
+        orgs.sort(new DepDescComp());
     }
 }
